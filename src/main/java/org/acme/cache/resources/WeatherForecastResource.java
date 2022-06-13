@@ -7,10 +7,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import org.acme.cache.entities.WeatherForecast;
 import org.acme.cache.services.WeatherForecastService;
-import org.jboss.resteasy.reactive.RestQuery;
 
 @Path("/weather")
 public class WeatherForecastResource {
@@ -19,7 +19,9 @@ public class WeatherForecastResource {
     WeatherForecastService service;
 
     @GET
-    public WeatherForecast getForecast(@RestQuery String city, @RestQuery long daysInFuture) {
+    public WeatherForecast getForecast(
+            @PathParam("city") String city,
+            @PathParam("daysInFuture") long daysInFuture) {
         long executionStart = System.currentTimeMillis();
         List<String> dailyForecasts = Arrays.asList(
                 service.getDailyForecast(LocalDate.now().plusDays(daysInFuture), city),
