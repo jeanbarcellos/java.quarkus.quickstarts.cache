@@ -1,4 +1,4 @@
-package org.acme.cache;
+package org.acme.cache.resources;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
+import org.acme.cache.entities.WeatherForecast;
+import org.acme.cache.services.WeatherForecastService;
 import org.jboss.resteasy.reactive.RestQuery;
 
 @Path("/weather")

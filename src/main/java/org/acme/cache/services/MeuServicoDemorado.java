@@ -1,4 +1,4 @@
-package org.acme.cache;
+package org.acme.cache.services;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

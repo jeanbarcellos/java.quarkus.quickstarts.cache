@@ -1,4 +1,4 @@
-package org.acme.cache;
+package org.acme.cache.resources;
 
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
@@ -7,6 +7,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import org.acme.cache.services.MeuServicoDemorado;
 
 @Path("/cache")
 @Produces(MediaType.TEXT_PLAIN)
