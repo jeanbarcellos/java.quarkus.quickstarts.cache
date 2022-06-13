@@ -5,12 +5,15 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.acme.cache.dto.CategoryRequest;
 import org.acme.cache.entities.Category;
 import org.acme.cache.services.CategoryService;
 
@@ -33,6 +36,17 @@ public class CategoryResource {
     @Path("{id}")
     public Category getById(@PathParam("id") Integer id) {
         return this.service.getById(id);
+    }
+
+    @POST
+    public Category getById(CategoryRequest request) {
+        return this.service.insert(request);
+    }
+
+    @DELETE
+    @Path("{id}")
+    public void delete(@PathParam("id") Integer id) {
+        this.service.delete(id);
     }
 
 }

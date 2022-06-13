@@ -14,8 +14,22 @@ public class Category {
         return id;
     }
 
+    public Category setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public Category setName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public static Category of(String name) {
+        return new Category(null, name);
     }
 
     @Override
